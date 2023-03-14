@@ -53,8 +53,7 @@ export async function movieReviews (id) {
             //    console.log(response.data.results);
                return response.data.results;
            };
-        
-    } catch (error) {
+         } catch (error) {
         console.log(error);
     };
 };
