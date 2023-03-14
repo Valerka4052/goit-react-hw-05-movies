@@ -13,15 +13,15 @@ export async function getTrendingMovies () {
     };
 };
 
-// export async function searchMovie(value) {
-//         try {
-//         const response = await axios("https://api.themoviedb.org/3/trending/all/day?api_key=633fe04a7d6ce6c2dfe6642f8f7fec03")
-//         if (response.status === 200) { console.log(response.data.results); return response.data.results}
+export async function searchMovie(value) {
+        try {
+        const response = await axios(`https://api.themoviedb.org/3/search/movie?api_key=633fe04a7d6ce6c2dfe6642f8f7fec03&language=en-US&page=1&include_adult=false&query=${value}`)
+        if (response.status === 200) { return response.data.results}
         
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export async function movieDetails(id) {
          try {
