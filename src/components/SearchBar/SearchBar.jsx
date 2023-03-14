@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 
 export function SearchBar({onSubmitValue}) {
 
@@ -17,3 +17,6 @@ export function SearchBar({onSubmitValue}) {
         </form>
     );
 }
+SearchBar.propTypes={
+       onSubmitValue:PropTypes.func.isRequired,    
+    };

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Outlet, Link,useLocation } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 export function Details({ detailsMovie }) {
     const location = useLocation();
@@ -7,21 +8,20 @@ export function Details({ detailsMovie }) {
     const backLinkHref = useRef(location.state?.from ?? "/");
     const { genres, original_title, release_date, overview, poster_path
  } = detailsMovie;
-    console.log(detailsMovie)
+    // console.log('hgdjtfuj', detailsMovie)
     useEffect(() => {
         SetLocationState(backLinkHref.current);
     }, []);
     return (
         <>
             <Link to={locationState}>go back</Link>
-            <div><img src={`https://image.tmdb.org/t/p/w500${poster_path
-}`} alt="" />
+            <div><img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="" />
                 <p>{original_title} ({release_date})</p>
                 <p>Owerview</p>
                 <p>{overview}</p>
                 <ul>
                 
-                    {genres.map((value) => { return <li key={value.id}>{value.name}</li> })}
+                    {genres.map(({id,name}) => { return <li key={id}>{name}</li> })}
                 </ul></div>
             <div>
                 <p>additonal information</p>
@@ -33,4 +33,17 @@ export function Details({ detailsMovie }) {
             </div>
         </>);
 };
-
+Details.propTypes = {
+    detailsMovie: PropTypes.shape({
+            original_title: PropTypes.string,
+            release_date: PropTypes.string,
+            overview: PropTypes.string,
+            poster_path: PropTypes.string,
+            genres: PropTypes.arrayOf(
+                PropTypes.shape({
+                    id: PropTypes.number.isRequired,
+                    name: PropTypes.string,
+                })
+            )
+        })
+    };
