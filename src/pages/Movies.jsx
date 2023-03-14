@@ -3,27 +3,28 @@ import { MovieList } from "components/MovieList/MovieList";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { searchMovie } from "api";
-
+import { Loader } from "components/Loader/Loader";
 
 export function Movies() {
     const [findMovies, setfindMovies] = useState('');
+     const[loading,setLoading]=useState(false)
     const [searchParams, setSearchParams] = useSearchParams({ query: '' });
- 
-     
     const query = searchParams.get('query');
+    
     useEffect(() => {
-        searchMovie(query).then(setfindMovies)
+         setLoading(true)
+        searchMovie(query).then(movies => {setfindMovies(movies);setLoading(false)})
     }, [query]);
     function getfindMovies(value) {
         const normalizedValue = value.trim().toLowerCase();
         setSearchParams(normalizedValue !== '' ? { query: normalizedValue } : {});
     };
-    
+
     if (!findMovies) return null;
     return (
         <>
             <SearchBar onSubmitValue={getfindMovies} />
-            {findMovies.length > 0 && <MovieList movies={findMovies}/>}
+            {loading?<Loader/>:findMovies.length > 0 && <MovieList  movies={findMovies}/>}
         </>
     );
 };

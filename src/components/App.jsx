@@ -22,15 +22,15 @@ export const App = () => {
     >
      
       <Routes>
-      <Route path='/' element={<SharedLaout />} >
-        <Route index element={<Home />} />
-        <Route path='/movies' element={<Movies />} />
-        <Route path='/movies/:movieId' element={<MovieDetails />} >
-          <Route path='/movies/:movieId/cast' element={<Cast />} />
-          <Route path='/movies/:movieId/reviews' element={<Reviews />} />
+        <Route path='/' element={<SharedLaout />} >
+          <Route index element={<Home />} />
+          <Route path='/movies' element={<Movies />} />
+          <Route path='/movies/:movieId' element={<MovieDetails />} >
+            <Route path='/movies/:movieId/cast' element={<Cast />} />
+            <Route path='/movies/:movieId/reviews' element={<Reviews />} />
+          </Route>
+          <Route path='*' element={<NotFound />} ></Route>
         </Route>
-        <Route path='*' element={<NotFound />} ></Route>
-      </Route>
       </Routes>
     </div>
   );

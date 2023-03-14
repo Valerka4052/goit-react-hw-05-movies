@@ -1,13 +1,21 @@
+import { useEffect, useRef, useState } from "react";
 import { Outlet, Link,useLocation } from "react-router-dom";
 
-export function Details({ detailsMovie, }) {
+export function Details({ detailsMovie }) {
     const location = useLocation();
-    const backLinkHref = location.state?.from.pathname ?? "/";
-  const  { genres, original_title, release_date, overview, backdrop_path } = detailsMovie
-    return(
-    <>
-            <Link to={backLinkHref}>go back</Link>
-            <div><img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} alt="" />
+    const [locationState, SetLocationState] = useState(null);
+    const backLinkHref = useRef(location.state?.from ?? "/");
+    const { genres, original_title, release_date, overview, poster_path
+ } = detailsMovie;
+    console.log(detailsMovie)
+    useEffect(() => {
+        SetLocationState(backLinkHref.current);
+    }, []);
+    return (
+        <>
+            <Link to={locationState}>go back</Link>
+            <div><img src={`https://image.tmdb.org/t/p/w500${poster_path
+}`} alt="" />
                 <p>{original_title} ({release_date})</p>
                 <p>Owerview</p>
                 <p>{overview}</p>
@@ -23,7 +31,6 @@ export function Details({ detailsMovie, }) {
                 </ul>
                 <Outlet />
             </div>
-        </>)
-}
+        </>);
+};
 
-// location.state.from.pathname
