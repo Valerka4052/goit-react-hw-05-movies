@@ -5,7 +5,7 @@ export function CastList({ cast }) {
             {cast.map(({ id, character, original_name, profile_path }) => {
                 return (
                     <li key={id}>
-                        <img src="https://image.tmdb.org/t/p/w500/{profile_path}" alt="" />
+                        <img src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt="" />
                         <p>{original_name}</p>
                         <p>{character}</p>
                     </li>

@@ -2,12 +2,12 @@ import { Outlet, Link,useLocation } from "react-router-dom";
 
 export function Details({ detailsMovie, }) {
     const location = useLocation();
-    const backLinkHref = location.state?.from ?? "/";
+    const backLinkHref = location.state?.from.pathname ?? "/";
   const  { genres, original_title, release_date, overview, backdrop_path } = detailsMovie
     return(
     <>
             <Link to={backLinkHref}>go back</Link>
-            <div><img src={backdrop_path} alt="" />
+            <div><img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} alt="" />
                 <p>{original_title} ({release_date})</p>
                 <p>Owerview</p>
                 <p>{overview}</p>

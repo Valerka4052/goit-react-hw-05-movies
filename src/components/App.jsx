@@ -11,17 +11,18 @@ export const App = () => {
   return (
     <div
     // style={{
+    //   width:'1200px',
     //   height: '100vh',
     //   display: 'flex',
     //   justifyContent: 'center',
     //   alignItems: 'center',
-    //   fontSize: 40,
+    //   // fontSize: 40,
     //   color: '#010101'
     // }}
     >
      
       <Routes>
-<Route path='/' element={<SharedLaout />} >
+      <Route path='/' element={<SharedLaout />} >
         <Route index element={<Home />} />
         <Route path='/movies' element={<Movies />} />
         <Route path='/movies/:movieId' element={<MovieDetails />} >
