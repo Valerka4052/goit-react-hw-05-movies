@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Outlet,useLocation,} from "react-router-dom";
 import PropTypes from 'prop-types';
-import { List,Item,Image,TextContainer,Text,MainText,Container,GenreItem,LinkContainer,NavLink,Link } from './Details1.styled'
+import { List, Item, Image, TextContainer, Text, MainText, Container, GenreItem, LinkContainer, NavLink, Link } from './Details1.styled';
 
 export function Details({ detailsMovie }) {
     const location = useLocation();
@@ -26,12 +26,10 @@ console.log(detailsMovie)
                 <TextContainer>
                     <MainText>{original_title} ({releaseDate})</MainText>
                     <Text><strong>User score: </strong>{score}%</Text>
-                    <Text>{overview}</Text>
                     <Text><strong>Owervew:</strong></Text>
                     <Text>{overview}</Text>
-                   <Text><strong>Genres:</strong></Text>
+                    <Text><strong>Genres:</strong></Text>
                     <List>
-                
                         {genres.map(({ id, name }) => { return <GenreItem key={id}>{name}</GenreItem> })}
                     </List>
                     <div>
@@ -44,22 +42,21 @@ console.log(detailsMovie)
                 </TextContainer>
             </Container>
             <Outlet />
-                 
         </>
     );
 };
 Details.propTypes = {
     detailsMovie: PropTypes.shape({
-            original_title: PropTypes.string,
-            release_date: PropTypes.string,
-            overview: PropTypes.string,
+        original_title: PropTypes.string,
+        release_date: PropTypes.string,
+        overview: PropTypes.string,
         poster_path: PropTypes.string,
-            vote_average: PropTypes.number,
-            genres: PropTypes.arrayOf(
-                PropTypes.shape({
-                    id: PropTypes.number.isRequired,
-                    name: PropTypes.string,
-                }).isRequired,
-            ).isRequired,
-        }).isRequired,
-    };
+        vote_average: PropTypes.number,
+        genres: PropTypes.arrayOf(
+            PropTypes.shape({
+                id: PropTypes.number.isRequired,
+                name: PropTypes.string,
+            }).isRequired,
+        ).isRequired,
+    }).isRequired,
+};

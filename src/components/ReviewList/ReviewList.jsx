@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import{List,Item,Text} from './ReviewList.styled'
+import { List, Item, Text } from './ReviewList.styled';
 
 export function ReviewList({ reviews }) {
    
@@ -25,6 +25,6 @@ ReviewList.propTypes = {
             author: PropTypes.string.isRequired,
             content: PropTypes.string.isRequired,
             id: PropTypes.number.isRequired,
-        }).isRequired
-    ).isRequired,
+        })
+    )
 };

@@ -4,7 +4,8 @@ import {useParams,} from "react-router-dom";
 import { movieDetails } from "../api";
 import { Loader } from "components/Loader/Loader";
 
-export function MovieDetails() {
+
+ function MovieDetails() {
     const { movieId } = useParams();
     const [detailsMovie, setDetailsMovie] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -23,3 +24,4 @@ export function MovieDetails() {
         loading ? <Loader /> : <Details detailsMovie={detailsMovie} />
     );
 };
+export default MovieDetails

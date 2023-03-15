@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { List,Item,Thumb,Link,Img,Text } from "./MovieList.styled";
+import { List, Item, Thumb, Link, Img, Text } from "./MovieList.styled";
 import PropTypes from 'prop-types';
 
 export function MovieList({ movies}) {
@@ -16,7 +16,7 @@ export function MovieList({ movies}) {
                             </Thumb>
                             <Text>{title}</Text>
                         </Link>
-                    </Item>)
+                    </Item>);
             })}
         </List>
     );
@@ -29,5 +29,5 @@ MovieList.propTypes = {
             title: PropTypes.string,
             poster_path: PropTypes.string,
         })
-    )
+    ).isRequired
 };

@@ -1,9 +1,9 @@
 import { getTrendingMovies } from "api"
 import { MovieList } from "components/MovieList/MovieList";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { Loader } from "components/Loader/Loader";
 
-export function Home() {
+function Home() {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     useEffect(() => {
@@ -14,6 +14,9 @@ export function Home() {
         });
     }, []);
     return (
-        loading ? <Loader /> : <MovieList movies={movies} />
+        <Suspense  fallback={<div>rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</div>}>
+           { loading ? <Loader /> : <MovieList movies={movies} />}
+        </Suspense>
     );
 };
+export default Home

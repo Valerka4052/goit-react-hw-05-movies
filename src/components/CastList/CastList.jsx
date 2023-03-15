@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { List,Item,Image,TextContainer,Text } from './CastList1.styled';
+import { List, Item, Image, TextContainer, Text } from './CastList1.styled';
 
 export function CastList({ cast }) {
 
