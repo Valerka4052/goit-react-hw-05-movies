@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Outlet,useLocation,} from "react-router-dom";
 import PropTypes from 'prop-types';
-import { List, Item, Image, TextContainer, Text, MainText, Container, GenreItem, LinkContainer, NavLink, Link } from './Details1.styled';
+import { List, Item, Image, TextContainer, Text, MainText, Container, GenreItem, LinkContainer, NavLink, Link } from './Details.styled';
 
 export function Details({ detailsMovie }) {
     const location = useLocation();

@@ -1,5 +1,7 @@
+import {IncorrectPage} from '../components/IncorrectPage/IncorrectPage'
+
 export function NotFound() {
     return (
-        <div>I AM NotFound</div>
+        <IncorrectPage/>
     )
 }
