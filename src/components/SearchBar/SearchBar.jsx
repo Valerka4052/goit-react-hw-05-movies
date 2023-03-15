@@ -19,7 +19,8 @@ export function SearchBar({ onSubmitValue }) {
             </Form>
         </Container>
     );
-}
+};
+
 SearchBar.propTypes={
        onSubmitValue:PropTypes.func.isRequired,    
     };

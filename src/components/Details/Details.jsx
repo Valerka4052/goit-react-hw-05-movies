@@ -7,9 +7,10 @@ export function Details({ detailsMovie }) {
     const location = useLocation();
     const [locationState, SetLocationState] = useState(null);
     const backLinkHref = useRef(location.state?.from ?? "/");
+
     const { genres, original_title, release_date, overview, poster_path, vote_average } = detailsMovie;
     const score = Math.round(vote_average * 10);
-console.log(detailsMovie)
+
     useEffect(() => {
         SetLocationState(backLinkHref.current);
     }, []);

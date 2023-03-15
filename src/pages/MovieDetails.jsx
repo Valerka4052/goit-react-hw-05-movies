@@ -24,4 +24,4 @@ import { Loader } from "components/Loader/Loader";
         loading ? <Loader /> : <Details detailsMovie={detailsMovie} />
     );
 };
-export default MovieDetails
+export default MovieDetails;

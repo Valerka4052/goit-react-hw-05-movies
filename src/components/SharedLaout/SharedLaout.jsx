@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { NavContainer, NavLink } from "./SharedLaout.styled";
 import { Suspense } from "react";
+
 export function SharedLaout() {
     
     return (
@@ -14,4 +15,4 @@ export function SharedLaout() {
             </Suspense>
         </section>
     );
-}
+};

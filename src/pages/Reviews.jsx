@@ -8,13 +8,15 @@ export function Reviews() {
     const [reviews, setReviews] = useState(null);
     const [loading, setLoading] = useState(false);
     const { movieId } = useParams();
+
     useEffect(() => {
         setLoading(true);
         movieReviews(movieId).then(movie => {
             setReviews(movie);
             setLoading(false);
-        })
+        });
     }, [movieId]);
+
     if (!reviews) return;
     
     return (

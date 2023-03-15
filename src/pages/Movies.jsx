@@ -6,6 +6,7 @@ import { searchMovie } from "api";
 import { Loader } from "components/Loader/Loader";
 
 export function Movies() {
+
     const [findMovies, setfindMovies] = useState('');
     const [loading, setLoading] = useState(false);
     const [searchParams, setSearchParams] = useSearchParams({ query: '' });
@@ -16,7 +17,7 @@ export function Movies() {
         searchMovie(query).then(movies => {
             setfindMovies(movies);
             setLoading(false);
-        })
+        });
     }, [query]);
 
     function getfindMovies(value) {
