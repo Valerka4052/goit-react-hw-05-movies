@@ -4,11 +4,11 @@ export function SharedLaout() {
     
     return (
         <section>
-         <nav>
-        <NavLink to='/'>Home</NavLink>
-        <NavLink to='/movies'>Movies</NavLink>
+            <nav>
+                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/movies'>Movies</NavLink>
             </nav>
-            <Outlet/>
-            </section>
-    )
+            <Outlet />
+        </section>
+    );
 }

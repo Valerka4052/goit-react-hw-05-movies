@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 export function CastList({ cast }) {
     console.log(cast)
     return (
@@ -12,7 +13,8 @@ export function CastList({ cast }) {
                     </li>
                 );
             })};
-        </ul>);
+        </ul>
+    );
 }
 
 CastList.propTypes = {
@@ -22,6 +24,6 @@ CastList.propTypes = {
         character: PropTypes.string,
         original_name: PropTypes.string,
         profile_path: PropTypes.string,
-        }),
+        }).isRequired,
     ).isRequired
 };

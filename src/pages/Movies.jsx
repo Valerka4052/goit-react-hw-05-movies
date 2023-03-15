@@ -7,14 +7,18 @@ import { Loader } from "components/Loader/Loader";
 
 export function Movies() {
     const [findMovies, setfindMovies] = useState('');
-     const[loading,setLoading]=useState(false)
+    const [loading, setLoading] = useState(false);
     const [searchParams, setSearchParams] = useSearchParams({ query: '' });
     const query = searchParams.get('query');
     
     useEffect(() => {
-         setLoading(true)
-        searchMovie(query).then(movies => {setfindMovies(movies);setLoading(false)})
+        setLoading(true);
+        searchMovie(query).then(movies => {
+            setfindMovies(movies);
+            setLoading(false);
+        })
     }, [query]);
+
     function getfindMovies(value) {
         const normalizedValue = value.trim().toLowerCase();
         setSearchParams(normalizedValue !== '' ? { query: normalizedValue } : {});
@@ -24,7 +28,7 @@ export function Movies() {
     return (
         <>
             <SearchBar onSubmitValue={getfindMovies} />
-            {loading?<Loader/>:findMovies.length > 0 && <MovieList  movies={findMovies}/>}
+            {loading ? <Loader /> : findMovies.length > 0 && <MovieList movies={findMovies} />}
         </>
     );
 };

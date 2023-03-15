@@ -6,15 +6,19 @@ import { Loader } from "components/Loader/Loader";
 
 export function Cast() {
     const [cast, setCast] = useState(null);
-    const[loading,setLoading]=useState(false)
+    const [loading, setLoading] = useState(false);
     const { movieId } = useParams();
     useEffect(() => {
-        setLoading(true)
-        movieCast(movieId).then(movie => { setCast(movie); setLoading(false)})
+        setLoading(true);
+        movieCast(movieId).then(movie => {
+            setCast(movie);
+            setLoading(false);
+        })
     }, [movieId]);
+    
     if (!cast) return;
-    console.log(cast);
+
     return (
-    loading?<Loader/>:< CastList cast={cast} />
+        loading ? <Loader /> : < CastList cast={cast} />
     );
-}
+};

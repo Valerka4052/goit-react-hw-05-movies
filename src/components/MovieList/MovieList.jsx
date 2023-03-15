@@ -4,14 +4,12 @@ import PropTypes from 'prop-types';
 
 export function MovieList({ movies}) {
     const location = useLocation();
-    console.log(movies)
+
     return (
         <List>
-            {movies.map(({id,poster_path,title}) => {
+            {movies.map(({ id, poster_path, title }) => {
                 return (<Item key={id}>
-                    <Link
-                        state={{ from: location }}
-                        to={`/movies/${id}`}   >
+                    <Link state={{ from: location }} to={`/movies/${id}`}   >
                         <Thumb>
                             <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} />
                         </Thumb>

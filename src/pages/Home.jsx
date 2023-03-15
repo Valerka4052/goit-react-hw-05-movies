@@ -5,12 +5,15 @@ import { Loader } from "components/Loader/Loader";
 
 export function Home() {
     const [movies, setMovies] = useState([]);
-     const[loading,setLoading]=useState(false)
+    const [loading, setLoading] = useState(false);
     useEffect(() => {
-        setLoading(true)
-        getTrendingMovies().then(movies => { setMovies(movies); setLoading(false)});
+        setLoading(true);
+        getTrendingMovies().then(movies => {
+            setMovies(movies);
+            setLoading(false);
+        });
     }, []);
     return (
-        loading?<Loader/>:<MovieList movies={movies} />
+        loading ? <Loader /> : <MovieList movies={movies} />
     );
 };
