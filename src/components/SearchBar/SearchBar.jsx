@@ -1,20 +1,22 @@
 import PropTypes from 'prop-types';
-
+import { Form, Input,Button,Container } from './SearchBar.styled';
 export function SearchBar({onSubmitValue}) {
 
     return (
-        <form onSubmit={(e) => {
+        <Container>
+        <Form onSubmit={(e) => {
             e.preventDefault();
             if (!e.target.search.value) return;
             onSubmitValue(e.target.search.value);
             }}>
-            <input
+            <Input
                 type="text"
                 name="search"
                 placeholder='enter the film'
                 />
-            <button type='submit' >Search</button>
-        </form>
+            <Button type='submit' >Search</Button>
+        </Form>
+        </Container>
     );
 }
 SearchBar.propTypes={

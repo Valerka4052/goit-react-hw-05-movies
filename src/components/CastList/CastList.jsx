@@ -1,19 +1,22 @@
 import PropTypes from 'prop-types';
+import { List,Item,Image,TextContainer,Text } from './CastList1.styled';
 
 export function CastList({ cast }) {
-    console.log(cast)
+
     return (
-        <ul>
+        <List>
             {cast.map(({ id, character, original_name, profile_path }) => {
                 return (
-                    <li key={id}>
-                        <img src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt="" />
-                        <p>{original_name}</p>
-                        <p>{character}</p>
-                    </li>
+                    <Item key={id}>
+                        <Image src={`https://image.tmdb.org/t/p/w300${profile_path}`} alt="" />
+                        <TextContainer>
+                            <Text>{original_name}</Text>
+                            <Text><strong>Character:</strong> {character}</Text>
+                        </TextContainer>
+                    </Item>
                 );
             })};
-        </ul>
+        </List>
     );
 }
 

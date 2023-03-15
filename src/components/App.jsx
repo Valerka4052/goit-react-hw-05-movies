@@ -6,21 +6,11 @@ import { Cast} from 'pages/Cast'
 import {Reviews } from 'pages/Reviews'
 import { NotFound } from 'pages/NotFound'
 import { SharedLaout } from "./SharedLaout/SharedLaout";
-// import{searchMovie}from'../api'
+import { Container } from "./App.styled";
+
 export const App = () => {
   return (
-    <div
-    // style={{
-    //   width:'1200px',
-    //   height: '100vh',
-    //   display: 'flex',
-    //   justifyContent: 'center',
-    //   alignItems: 'center',
-    //   // fontSize: 40,
-    //   color: '#010101'
-    // }}
-    >
-     
+    <Container>
       <Routes>
         <Route path='/' element={<SharedLaout />} >
           <Route index element={<Home />} />
@@ -32,6 +22,6 @@ export const App = () => {
           <Route path='*' element={<NotFound />} ></Route>
         </Route>
       </Routes>
-    </div>
+    </Container>
   );
 };

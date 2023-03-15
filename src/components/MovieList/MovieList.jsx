@@ -1,5 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
-import { List,Item,Thumb } from "./MovieList.styled";
+import { useLocation } from "react-router-dom";
+import { List,Item,Thumb,Link,Img,Text } from "./MovieList.styled";
 import PropTypes from 'prop-types';
 
 export function MovieList({ movies}) {
@@ -8,14 +8,15 @@ export function MovieList({ movies}) {
     return (
         <List>
             {movies.map(({ id, poster_path, title }) => {
-                return (<Item key={id}>
-                    <Link state={{ from: location }} to={`/movies/${id}`}   >
-                        <Thumb>
-                            <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} />
-                        </Thumb>
-                        <p>{title}</p>
-                    </Link>
-                </Item>)
+                return (
+                    <Item key={id}>
+                        <Link state={{ from: location }} to={`/movies/${id}`}   >
+                            <Thumb>
+                                <Img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={title} />
+                            </Thumb>
+                            <Text>{title}</Text>
+                        </Link>
+                    </Item>)
             })}
         </List>
     );
