@@ -5,15 +5,14 @@ import { useSearchParams } from "react-router-dom";
 import { searchMovie } from "api";
 import { Loader } from "components/Loader/Loader";
 
-export function Movies() {
-
-    const [findMovies, setfindMovies] = useState('');
+function Movies() {
     const [loading, setLoading] = useState(false);
+    const [findMovies, setfindMovies] = useState('');
     const [searchParams, setSearchParams] = useSearchParams({ query: '' });
     const query = searchParams.get('query');
     
     useEffect(() => {
-        setLoading(true);
+         setLoading(true);
         searchMovie(query).then(movies => {
             setfindMovies(movies);
             setLoading(false);
@@ -33,3 +32,4 @@ export function Movies() {
         </>
     );
 };
+export default Movies;
