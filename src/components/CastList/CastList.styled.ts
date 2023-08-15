@@ -24,3 +24,7 @@ export const TextContainer = styled.div`
 export const Text = styled.p`
 
 `
+export const Box = styled.div`
+width:100%;
+text-align:center
+`

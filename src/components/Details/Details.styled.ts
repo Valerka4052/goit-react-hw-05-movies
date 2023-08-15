@@ -12,7 +12,7 @@ export const Item = styled.li`
 list-style: none;
 margin-bottom:15px;
 margin-right:40px;
-     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 &:hover {
   transform: scale(1.5);
     };

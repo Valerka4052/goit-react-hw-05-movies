@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import { Form, Input,Button,Container } from './SearchBar.styled';
 
-export function SearchBar({ onSubmitValue }) {
+export function SearchBar({ onSubmitValue }:{ onSubmitValue:(value:string)=>void }) {
 
     return (
         <Container>
-            <Form onSubmit={(e) => {
-                e.preventDefault();
-                if (!e.target.search.value) return;
-                onSubmitValue(e.target.search.value);
+            <Form onSubmit={(event:React.FormEvent<HTMLFormElement>) => {
+                event.preventDefault();
+                if (!event.currentTarget.search.value.trim()) return null;
+                onSubmitValue(event.currentTarget.search.value);
             }}>
                 <Input
                     type="text"

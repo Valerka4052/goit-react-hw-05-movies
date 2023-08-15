@@ -1,13 +1,14 @@
 import { useLocation } from "react-router-dom";
 import { List, Item, Thumb, Link, Img, Text } from "./MovieList.styled";
 import PropTypes from 'prop-types';
+import { MovieResponseType } from "../../types";
 
-export function MovieList({ movies}) {
+export function MovieList ({ movies}:{movies:MovieResponseType[]}) {
     const location = useLocation();
 
     return (
         <List>
-            {movies.map(({ id, poster_path, title }) => {
+            {movies.map(({ id, poster_path, title }: MovieResponseType) => {
                 return (
                     <Item key={id}>
                         <Link state={{ from: location }} to={`/movies/${id}`}   >

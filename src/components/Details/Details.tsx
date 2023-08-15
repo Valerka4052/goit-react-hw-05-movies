@@ -1,11 +1,13 @@
-import { useEffect, useRef, useState } from "react";
-import { Outlet,useLocation,} from "react-router-dom";
+import { useRef,useState,useEffect} from "react";
+import { Outlet, useLocation, } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { List, Item, Image, TextContainer, Text, MainText, Container, GenreItem, LinkContainer, NavLink, Link } from './Details.styled';
+import { MovieInfoResponseType } from "../../types";
 
-export function Details({ detailsMovie }) {
+export function Details({ detailsMovie }:{detailsMovie:MovieInfoResponseType}) {
     const location = useLocation();
-    const [locationState, SetLocationState] = useState(null);
+    console.log(location)
+    const [locationState, SetLocationState] = useState<string>("");
     const backLinkHref = useRef(location.state?.from ?? "/");
 
     const { genres, original_title, release_date, overview, poster_path, vote_average } = detailsMovie;
